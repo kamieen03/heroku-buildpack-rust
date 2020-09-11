@@ -150,3 +150,12 @@ if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
   cp $(which diesel) target/release/
 fi
+
+# Install libtorch
+echo "-----> Installing libtorch"
+mkdir torch
+cd torch
+wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.6.0%2Bcpu.zip 
+file='libtorch-cxx11-abi-shared-with-deps-1.6.0+cpu.zip'
+unzip "$file"
+rm "$file"
